@@ -7,6 +7,7 @@ gem 'rails', '4.2.0'
 group :development do
   gem 'mysql2'
   gem 'rspec-rails', '2.9.0'
+
 end
 
 
@@ -46,6 +47,7 @@ group :development, :test do
 end
 group :test do
   gem 'capybara'
+
 end
 group :production do
   gem 'pg'
