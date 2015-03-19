@@ -41,4 +41,11 @@ describe "StaticPages" do
     end
 
   end
+  describe "Contact page"  do
+    it "should have a title 'Contact Us'" do
+    visit '/static_pages/contact'
+    page.should have_title("Ruby on Rails Tutorial Sample App | Contact Us")
+    end
+
+  end
 end
