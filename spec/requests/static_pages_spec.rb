@@ -1,5 +1,5 @@
 require 'spec_helper'
-
+include ApplicationHelper
 describe "StaticPages" do
     subject{page}
   describe "Home page" do
