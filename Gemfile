@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
+gem 'bootstrap-sass'
+gem "sprockets", "2.12.2"
 # Use mysql as the database for Active Record
 group :development do
   gem 'mysql2'

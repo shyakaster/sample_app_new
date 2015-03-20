@@ -1,11 +1,21 @@
 Rails.application.routes.draw do
-  get 'static_pages/home'
 
-  get 'static_pages/help'
+  SampleApp::Application.routes.draw do
+      #get "users/new"
+      root to: 'static_pages#home'
+      get 'help', to: 'static_pages#help'
+      get 'about', to: 'static_pages#about'
+      get 'contact', to: 'static_pages#contact'
+      get 'signup',to: 'users#new'
 
-  get 'static_pages/about'
+      #match ':controller(/:action(/:id))', :via => [:get, :post]
 
-  get 'static_pages/contact'
+      #the rails3way below
+      #match '/help', to: 'static_pages#help', :via => [:get], :as => 'static_pages_help'
+      #match '/about', to: 'static_pages#about', :via => [:get], :as => 'static_pages_about'
+      #match '/contact', to: 'static_pages#contact', :via => [:get], :as => 'static_pages_contact'
+
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
