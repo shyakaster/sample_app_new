@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe User do
   #pending "add some examples to (or delete) #{__FILE__}"
-  before{@user=User.new(name:"Testing", email:"testing@email.com", password:"foo",password_confirmation:"foo")}
+  before{@user=User.new(name:"Testing", email:"testing@email.com", password:"foobar",password_confirmation:"foobar")}
 
   subject{@user}
 
@@ -49,7 +49,7 @@ describe User do
   describe "when email address is already taken"  do
    before do
      user_with_same_email=@user.dup
-     user_with_same_email.email=@user.email.upcase
+     #user_with_same_email.email=@user.email.upcase
      user_with_same_email.email.save
    end
     it {should_not be_valid}
@@ -75,7 +75,7 @@ describe User do
     it { should be_invalid }
   end
   describe "return value of authenticate method" do
-    before { @user.save }
+    #before { @user.save }
     let(:found_user) { User.find_by_email(@user.email) }
     describe "with valid password" do
       it { should == found_user.authenticate(@user.password) }
@@ -84,6 +84,14 @@ describe User do
       let(:user_for_invalid_password) { found_user.authenticate("invalid") }
       it { should_not == user_for_invalid_password }
       specify { user_for_invalid_password.should be false }
+    end
+    describe "email address with mixed case" do
+      let(:mixed_case_email) { "Foo@ExAMPle.CoM" }
+      it "should be saved as all lower-case" do
+        @user.email = mixed_case_email
+        @user.save
+        @user.reload.email.should == mixed_case_email.downcase
+      end
     end
   end
 
