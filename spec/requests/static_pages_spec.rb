@@ -37,16 +37,16 @@ describe "StaticPages" do
     it "should have the right links on the layout" do
       visit root path
       click_link "About"
-      page.should have_title 'title', text: full_title('About Us')
+      page.should have_title full_title('About Us')
       click_link "Help"
-      page.should have_title 'title', text: full_title('Help')
+      page.should have_title full_title('Help')
       click link "Contact"
-      page.should have_title 'title', text: full_title('Contact Us')
+      page.should have_title full_title('Contact Us')
       click link "Home"
       click link "Sign up now!"
-      page.should have_title 'title', text: full_title('Sign Up')
+      page.should have_title full_title('Sign Up')
       click link "sample app"
-      page.should have_title 'title', text: full_title('')
+      page.should have_title  full_title('')
     end
 end
 
