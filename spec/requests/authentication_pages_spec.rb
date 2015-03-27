@@ -20,17 +20,20 @@ describe "Authentication" do
    end
     describe "with valid information" do
      let(:user){FactoryGirl.create(:user)}
-      before()do
+      before do
        fill_in "Email", with: user.email
         fill_in "Password", with: user.password
         click_button "sign in"
       end
+     before{sign_in user} do
       it{should have_title(user.name)}
       it{should have_link('Profile', href: user_path(user))}
-      it{should have_link('Sign in', href: signin_path)}
+      it { should have_link('Settings', href: edit_user_path(user)) }
+      it{should_not have_link('Sign in', href: signin_path)}
       it{should have_link('Sign out', href: signout_path)}
+     end
       describe 'followed by signout' do
-        before(click_link "sign out")
+        before{click_link "sign out"}
         it{should have_link('Sign in')}
       end
     end
