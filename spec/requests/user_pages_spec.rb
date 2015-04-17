@@ -23,7 +23,7 @@ describe "User pages" do
 
       it "should list each user" do
         User.paginate(page: 1).each do |user|
-          expect(page).to have_selector('li', text: user.name)
+          page.should have_selector('li', text: user.name)
         end
       end
     end

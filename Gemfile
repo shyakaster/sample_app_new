@@ -8,6 +8,10 @@ gem "sprockets", "2.12.3"
 #gem 'bcrypt-ruby', '3.1.2'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+gem 'faker', '1.1.2'
+gem 'will_paginate', '3.0.4'
+gem 'bootstrap-will_paginate', '0.0.9'
+
 
 # Use mysql as the database for Active Record
 group :development do
