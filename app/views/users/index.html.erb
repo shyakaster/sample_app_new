@@ -2,7 +2,7 @@
 <h1>All users</h1>
 <div class="pagination">
   <div class="pagination">
-    <%= will_paginate %>
+    <%= will_paginate @users, renderer: BootstrapPagination::Rails %>
   </div>
   </div>
 
@@ -10,5 +10,5 @@
   <%=render @users %>
 </ul>
 <div class="pagination">
-  <%= will_paginate %>
+  <%= will_paginate @users, renderer: BootstrapPagination::Rails %>
     </div>
