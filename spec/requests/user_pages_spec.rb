@@ -166,10 +166,17 @@ describe "User pages" do
       visit edit_user_path(user)
     end
 
+
     describe "page" do
       it { should have_content("Update your profile") }
       it { should have_title("Edit user") }
       it { should have_link('change', href: 'http://gravatar.com/emails') }
+    end
+    describe "forbidden attributes" do
+      let(:params) do
+        { user: { admin: true, password: user.password,
+                  password_confirmation: user.password } }
+      end
     end
 
     describe "with invalid information" do
