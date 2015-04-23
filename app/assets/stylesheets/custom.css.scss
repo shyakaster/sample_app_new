@@ -223,6 +223,13 @@
       border-top: 1px solid #e8e8e8;
     }
   }
+/* micropost jQuery countdown */
+
+.countdown {
+  display: inline;
+  padding-left: 30px;
+  color: $grayLight;
+}
 
   .content {
     display: block;
